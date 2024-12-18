@@ -49,5 +49,7 @@ Feel free to connect with me through any of the platforms below!
 
 ## 📈 GitHub Stats:
 ![Aniket's GitHub stats](https://github-readme-stats.vercel.app/api?username=anni02th&show_icons=true&theme=radical)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anni02th&theme=react)
+
 
