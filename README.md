@@ -20,6 +20,7 @@ I am a **Full Stack Web Developer** with a passion for **AI**, **Blockchain**, a
 - **Frameworks**: React, Node.js, Flask, Express.js
 - **Databases**: MongoDB, MySQL
 - **Tools**: Git, JIRA, VS Code, Figma, Canva
+  
 
 ---
 
@@ -48,3 +49,5 @@ Feel free to connect with me through any of the platforms below!
 
 ## 📈 GitHub Stats:
 ![Aniket's GitHub stats](https://github-readme-stats.vercel.app/api?username=anni02th&show_icons=true&theme=radical)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anni02th&theme=react)
+
