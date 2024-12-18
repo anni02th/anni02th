@@ -7,6 +7,13 @@ I am a **Full Stack Web Developer** with a passion for **AI**, **Blockchain**, a
 - 👨‍💻 I’m working as a Web Developer Intern at **Skill Enhanced Pvt. Ltd.**
 - 💼 I’ve worked as a Frontend Developer Intern at **To Let Globe**, developing dynamic websites using **React** and **Tailwind CSS**.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/anni02th/anni02th/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/anni02th/anni02th/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/anni02th/output/github-contribution-grid-snake.svg">
+</picture>
+  
+
 ---
 
 ## 🔧 Skills & Technologies:
