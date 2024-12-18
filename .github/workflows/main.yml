@@ -45,5 +45,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB_TOKEN }}
 
-          generate-snake-game-from-github-contribution-grid
+
 
