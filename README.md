@@ -1,11 +1,53 @@
-# Hi there, I'm Aniket Daga More! 👋
+# 👋 Hi there, I'm Aniket Daga More!
 
-## 👨‍💻 About Me
-I am a **Full Stack Web Developer** with a passion for **AI**, **Blockchain**, and **Web Technologies**. Currently, I am pursuing my **B.Tech in Computer Science and Design** at **K. K. Wagh Institute of Engineering Education and Research**.
+🎓 **B.Tech in Computer Science and Design**  
+📍 **K. K. Wagh Institute of Engineering Education and Research**  
+🌐 **Full Stack Web Developer** | Passionate about **AI**, **Blockchain**, and **Web Technologies**
 
-- 🌱 I’m currently enhancing my skills in Full Stack Development (MERN Stack).
-- 👨‍💻 I’m working as a Web Developer Intern at **Skill Enhanced Pvt. Ltd.**
-- 💼 I’ve worked as a Frontend Developer Intern at **To Let Globe**, developing dynamic websites using **React** and **Tailwind CSS**.
+---
+
+## 🛠️ Tech Stack
+
+- **Languages:** C++, Python, JavaScript, HTML/CSS, SQL
+- **Frameworks & Libraries:** React, Node.js, Flask, Express.js
+- **Databases:** MongoDB, MySQL
+- **Tools & Platforms:** Git, JIRA, VS Code, Figma, Canva
+
+---
+
+## 💼 Experience
+
+- **Web Developer Intern** at *Skill Enhanced Pvt. Ltd.*
+- **Frontend Developer Intern** at *To Let Globe*  
+  Developed dynamic websites using **React** and **Tailwind CSS**
+
+---
+
+## 🚀 Projects
+
+1. **KKnotes**  
+   A platform for students to upload and download notes using the **MERN stack**.  
+   🔗 [GitHub Repository](https://github.com/anni02th) | 🌐 [Live Website](https://kknotes.site)
+
+2. **QRide**  
+   A vehicle rental platform with real-time tracking and dynamic payment using **React.js** and **Node.js**.  
+   🔗 [GitHub Repository](https://rasika2670.github.io/QRides/) | 🌐 [Live Demo](https://qride.netlify.app)
+
+3. **ERP System for College**  
+   A comprehensive ERP system for my college built with **React, Python Flask**, and **MongoDB**.  
+   🔗 [GitHub Repository](https://github.com/anni02th/Webathon-Mumbai) | 🎥 [Demo Video](https://drive.google.com/file/d/1t9sIKsSK3nMh54m11sHhkRQ7yn8AC6rD/view)
+
+---
+
+## 📈 GitHub Stats
+
+![Aniket's GitHub stats](https://github-readme-stats.vercel.app/api?username=anni02th&show_icons=true&theme=radical)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anni02th&theme=react)
+
+---
+
+## 🐍 GitHub Contribution Snake
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/anni02th/anni02th/output/github-contribution-grid-snake-dark.svg">
@@ -15,29 +57,7 @@ I am a **Full Stack Web Developer** with a passion for **AI**, **Blockchain**, a
 
 ---
 
-## 🔧 Skills & Technologies:
-- **Languages**: C++, Python, JavaScript, HTML/CSS, SQL
-- **Frameworks**: React, Node.js, Flask, Express.js
-- **Databases**: MongoDB, MySQL
-- **Tools**: Git, JIRA, VS Code, Figma, Canva
-  
-
----
-
-## 🚀 Projects:
-1. **KKnotes**: A platform for students to upload and download notes using the **MERN stack**.  
-   [KKnotes](https://github.com/anni02th) | [Live Website](https://kknotes.site)
-
-2. **QRide**: A vehicle rental platform with real-time tracking and dynamic payment using **React.js** and **Node.js**.  
-   [QRide Repository](https://rasika2670.github.io/QRides/) | [Live Demo](https://qride.netlify.app)
-
-3. **ERP System for College**: A comprehensive ERP system for my college built with **React, Python Flask**, and **MongoDB**.  
-   [ERP Repository](https://github.com/anni02th/Webathon-Mumbai) | [Demo Video](https://drive.google.com/file/d/1t9sIKsSK3nMh54m11sHhkRQ7yn8AC6rD/view)
-
----
-
-## 📫 How to Reach Me:
-Feel free to connect with me through any of the platforms below!
+## 📫 Connect with Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniket-more-b23b24255/)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/)
@@ -47,9 +67,30 @@ Feel free to connect with me through any of the platforms below!
 
 ---
 
-## 📈 GitHub Stats:
-![Aniket's GitHub stats](https://github-readme-stats.vercel.app/api?username=anni02th&show_icons=true&theme=radical)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anni02th&theme=react)
+## 🎨 Dynamic Color Palette
 
+To add a dynamic color palette to your profile, you can generate different shades of a base color using JavaScript. Here's a sample function that creates lighter and darker shades:
 
+```javascript
+function generateShades(hexColor, numberOfShades) {
+  const shades = [];
+  const step = Math.floor(255 / numberOfShades);
+  const base = parseInt(hexColor.slice(1), 16);
+  const r = (base >> 16) & 255;
+  const g = (base >> 8) & 255;
+  const b = base & 255;
+
+  for (let i = 1; i <= numberOfShades; i++) {
+    const newR = Math.min(r + step * i, 255);
+    const newG = Math.min(g + step * i, 255);
+    const newB = Math.min(b + step * i, 255);
+    shades.push(`#${((1 << 24) + (newR << 16) + (newG << 8) + newB).toString(16).slice(1)}`);
+  }
+
+  return shades;
+}
+
+// Example usage:
+const baseColor = '#3498db'; // Base color in HEX
+const palette = generateShades(baseColor, 5);
+console.log(palette);
