@@ -1,28 +1,32 @@
 name: generate animation
 
 on:
-  # run automatically every 24 hours
+  # Run daily at midnight UTC
   schedule:
-    - cron: "0 */24 * * *" 
-  
-  # allows to run the job at any time manually
+    - cron: "0 0 * * *"
+
+  # Manual trigger
   workflow_dispatch:
-  
-  # run on every push on the main branch
+
+  # On push to main branch
   push:
     branches:
       - main
-    
+
 jobs:
   generate:
-    permissions: 
-      contents: write  # Ensure write permissions to the repo contents
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
-    timeout-minutes: 2
-    
+    timeout-minutes: 5
+
     steps:
-      # generates a snake game from a GitHub user contributions graph, outputs a svg animation at <svg_out_path>
-      - name: generate github-contribution-grid-snake.svg
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate github-contribution-grid-snake.svg
         uses: Platane/snk@v3.2.0
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -30,14 +34,14 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the automatically provided GITHUB_TOKEN here.
-          
-      # Push the content of <build_dir> to a branch
-      # The content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file>, or as a GitHub page
-      - name: push github-contribution-grid-snake.svg to the output branch
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push SVG to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
+          keep_history: false
+          force_orphan: true  # ensures a clean branch with just the files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Again, use the automatically provided GITHUB_TOKEN Here.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
