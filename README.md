@@ -65,32 +65,3 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://aniketdmore.netlify.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anni02th)
 
----
-
-## 🎨 Dynamic Color Palette
-
-To add a dynamic color palette to your profile, you can generate different shades of a base color using JavaScript. Here's a sample function that creates lighter and darker shades:
-
-```javascript
-function generateShades(hexColor, numberOfShades) {
-  const shades = [];
-  const step = Math.floor(255 / numberOfShades);
-  const base = parseInt(hexColor.slice(1), 16);
-  const r = (base >> 16) & 255;
-  const g = (base >> 8) & 255;
-  const b = base & 255;
-
-  for (let i = 1; i <= numberOfShades; i++) {
-    const newR = Math.min(r + step * i, 255);
-    const newG = Math.min(g + step * i, 255);
-    const newB = Math.min(b + step * i, 255);
-    shades.push(`#${((1 << 24) + (newR << 16) + (newG << 8) + newB).toString(16).slice(1)}`);
-  }
-
-  return shades;
-}
-
-// Example usage:
-const baseColor = '#3498db'; // Base color in HEX
-const palette = generateShades(baseColor, 5);
-console.log(palette);
