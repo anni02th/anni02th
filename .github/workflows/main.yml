@@ -13,7 +13,7 @@ jobs:
   generate-snake:
     name: Generate Snake Animation
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       contents: write
 
@@ -28,15 +28,24 @@ jobs:
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push SVGs to output branch
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: output
-          build_dir: dist
-          keep_history: false
-          force_orphan: true
-          commit_message: "🐍 Daily snake update [skip ci]"
+        run: |
+          cd dist
+
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan output
+          git add -A
+          git commit -m "🐍 Snake update — $(date -u '+%Y-%m-%d') [skip ci]"
+
+          git push --force \
+            "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" \
+            output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -47,7 +56,7 @@ jobs:
     timeout-minutes: 5
     permissions:
       contents: write
-    needs: generate-snake   # Run after snake job completes
+    needs: generate-snake
 
     steps:
       - name: Checkout repository
@@ -57,8 +66,8 @@ jobs:
 
       - name: Set up Git identity
         run: |
-          git config --global user.email "work.anni02th@gmail.com"
-          git config --global user.name "Aniket Daga More"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Write daily activity log
         run: |
@@ -68,18 +77,19 @@ jobs:
 
           mkdir -p .github/logs
 
-          # Append to a rolling log file (keeps last 365 lines)
           echo "[$DATE] 🟢 Active — Week $WEEK, $DAY" >> .github/logs/activity.log
+
+          # Keep only last 365 entries
           tail -365 .github/logs/activity.log > .github/logs/activity.log.tmp
           mv .github/logs/activity.log.tmp .github/logs/activity.log
 
-          # Write a stats badge JSON (can be used with shields.io endpoint badge)
+          # Write shields.io endpoint badge JSON
           DAYS_ACTIVE=$(wc -l < .github/logs/activity.log | tr -d ' ')
           cat > .github/logs/streak.json << JSON
           {
             "schemaVersion": 1,
             "label": "days active",
-            "message": "$DAYS_ACTIVE",
+            "message": "${DAYS_ACTIVE}d",
             "color": "blueviolet"
           }
           JSON
@@ -87,10 +97,9 @@ jobs:
       - name: Commit and push activity log
         run: |
           git add .github/logs/
-          # Only commit if there are actual changes
           if git diff --cached --quiet; then
             echo "Nothing to commit."
           else
-            git commit -m "📊 Daily activity log — $(date -u '+%Y-%m-%d') [skip ci]"
+            git commit -m "📊 Daily activity — $(date -u '+%Y-%m-%d') [skip ci]"
             git push
           fi
