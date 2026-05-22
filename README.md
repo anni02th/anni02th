@@ -1,67 +1,47 @@
-# 👋 Hi there, I'm Aniket Daga More!
+## Hey there 👋, I'm Kashish Dange
 
-🎓 **B.Tech in Computer Science and Design**  
-📍 **K. K. Wagh Institute of Engineering Education and Research**  
-🌐 **Full Stack Web Developer** | Passionate about **AI**, **Blockchain**, and **Web Technologies**
+**Full Stack Developer**  
+ B.Tech in Computer Science & Design Engineering  
+ K. K. Wagh Institute of Engineering Education and Research, Nashik  
 
----
+<p> <img src="https://komarev.com/ghpvc/?username=kashishdange28&label=Profile%20views&color=0e75b6&style=flat"> </p>
 
-## 🛠️ Tech Stack
+-  I’m looking to collaborate with **Full Stack Projects**
+-  Creative by nature, I enjoy **art & craft** along with **paper quilling**
+     
+<h3>Connect with me:</h3>
+<p>
+<a href="https://linkedin.com/in/kashishdange"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"></a>
+<a><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"></a>
+<a href="https://github.com/KashishDange28"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"></a>
+<a href="https://leetcode.com/u/KashishTech12/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/leetcode/leetcode-original.svg"></a>
+<a href="https://www.geeksforgeeks.org/user/kashishd79m/"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg"></a>
+</p>
 
-- **Languages:** C++, Python, JavaScript, HTML/CSS, SQL
-- **Frameworks & Libraries:** React, Node.js, Flask, Express.js
-- **Databases:** MongoDB, MySQL
-- **Tools & Platforms:** Git, JIRA, VS Code, Figma, Canva
+<h3>Languages and Tools:</h3>
+<p>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg">
+  <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg">
 
----
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg">
 
-## 💼 Experience
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg">
 
-- **Web Developer Intern** at *Skill Enhanced Pvt. Ltd.*
-- **Frontend Developer Intern** at *To Let Globe*  
-  Developed dynamic websites using **React** and **Tailwind CSS**
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg">
+  <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg">
 
----
+  <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg">
+  <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg">
 
-## 🚀 Projects
-
-1. **KKnotes**  
-   A platform for students to upload and download notes using the **MERN stack**.  
-   🔗 [GitHub Repository](https://github.com/anni02th) | 🌐 [Live Website](https://kknotes.site)
-
-2. **QRide**  
-   A vehicle rental platform with real-time tracking and dynamic payment using **React.js** and **Node.js**.  
-   🔗 [GitHub Repository](https://rasika2670.github.io/QRides/) | 🌐 [Live Demo](https://qride.netlify.app)
-
-3. **ERP System for College**  
-   A comprehensive ERP system for my college built with **React, Python Flask**, and **MongoDB**.  
-   🔗 [GitHub Repository](https://github.com/anni02th/Webathon-Mumbai) | 🎥 [Demo Video](https://drive.google.com/file/d/1t9sIKsSK3nMh54m11sHhkRQ7yn8AC6rD/view)
-
----
-
-## 📈 GitHub Stats
-
-![Aniket's GitHub stats](https://github-readme-stats.vercel.app/api?username=anni02th&show_icons=true&theme=radical)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anni02th&theme=react)
-
----
-
-## 🐍 GitHub Contribution Snake
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/anni02th/anni02th/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/anni02th/anni02th/output/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/anni02th/anni02th/output/github-contribution-grid-snake.svg">
-</picture>
-
----
-
-## 📫 Connect with Me
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniket-more-b23b24255/)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:work.anni02th@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://aniketdmore.netlify.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anni02th)
-
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg">
+</p>
