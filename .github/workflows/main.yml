@@ -1,15 +1,14 @@
-name: 🐍 Snake & Daily Activity
+name: Snake & Daily Activity
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # Every day at midnight UTC
-  workflow_dispatch:        # Manual trigger
+    - cron: "0 0 * * *"
+  workflow_dispatch:
   push:
     branches:
       - main
 
 jobs:
-  # ─── Job 1: Regenerate the snake SVG ───────────────────────────────────────
   generate-snake:
     name: Generate Snake Animation
     runs-on: ubuntu-latest
@@ -33,7 +32,12 @@ jobs:
 
       - name: Push SVGs to output branch
         run: |
-          cd dist
+          # Copy SVGs to a clean temp folder (avoids /dist permission issues)
+          mkdir -p /tmp/snake-output
+          cp dist/github-contribution-grid-snake.svg /tmp/snake-output/
+          cp dist/github-contribution-grid-snake-dark.svg /tmp/snake-output/
+
+          cd /tmp/snake-output
 
           git init
           git config user.name "github-actions[bot]"
@@ -49,7 +53,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # ─── Job 2: Daily activity commit to keep profile alive ────────────────────
   daily-commit:
     name: Daily Activity Commit
     runs-on: ubuntu-latest
@@ -78,12 +81,9 @@ jobs:
           mkdir -p .github/logs
 
           echo "[$DATE] 🟢 Active — Week $WEEK, $DAY" >> .github/logs/activity.log
-
-          # Keep only last 365 entries
           tail -365 .github/logs/activity.log > .github/logs/activity.log.tmp
           mv .github/logs/activity.log.tmp .github/logs/activity.log
 
-          # Write shields.io endpoint badge JSON
           DAYS_ACTIVE=$(wc -l < .github/logs/activity.log | tr -d ' ')
           cat > .github/logs/streak.json << JSON
           {
