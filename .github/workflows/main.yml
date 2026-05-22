@@ -1,47 +1,96 @@
-name: generate animation
+name: 🐍 Snake & Daily Activity
 
 on:
-  # Run daily at midnight UTC
   schedule:
-    - cron: "0 0 * * *"
-
-  # Manual trigger
-  workflow_dispatch:
-
-  # On push to main branch
+    - cron: "0 0 * * *"   # Every day at midnight UTC
+  workflow_dispatch:        # Manual trigger
   push:
     branches:
       - main
 
 jobs:
-  generate:
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
+  # ─── Job 1: Regenerate the snake SVG ───────────────────────────────────────
+  generate-snake:
+    name: Generate Snake Animation
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate github-contribution-grid-snake.svg
-        uses: Platane/snk@v3.2.0
+      - name: Generate snake SVGs
+        uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push SVG to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Push SVGs to output branch
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
           build_dir: dist
           keep_history: false
-          force_orphan: true  # ensures a clean branch with just the files
+          force_orphan: true
+          commit_message: "🐍 Daily snake update [skip ci]"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─── Job 2: Daily activity commit to keep profile alive ────────────────────
+  daily-commit:
+    name: Daily Activity Commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    needs: generate-snake   # Run after snake job completes
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Git identity
+        run: |
+          git config --global user.email "work.anni02th@gmail.com"
+          git config --global user.name "Aniket Daga More"
+
+      - name: Write daily activity log
+        run: |
+          DATE=$(date -u "+%Y-%m-%d %H:%M UTC")
+          DAY=$(date -u "+%A")
+          WEEK=$(date -u "+%V")
+
+          mkdir -p .github/logs
+
+          # Append to a rolling log file (keeps last 365 lines)
+          echo "[$DATE] 🟢 Active — Week $WEEK, $DAY" >> .github/logs/activity.log
+          tail -365 .github/logs/activity.log > .github/logs/activity.log.tmp
+          mv .github/logs/activity.log.tmp .github/logs/activity.log
+
+          # Write a stats badge JSON (can be used with shields.io endpoint badge)
+          DAYS_ACTIVE=$(wc -l < .github/logs/activity.log | tr -d ' ')
+          cat > .github/logs/streak.json << JSON
+          {
+            "schemaVersion": 1,
+            "label": "days active",
+            "message": "$DAYS_ACTIVE",
+            "color": "blueviolet"
+          }
+          JSON
+
+      - name: Commit and push activity log
+        run: |
+          git add .github/logs/
+          # Only commit if there are actual changes
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "📊 Daily activity log — $(date -u '+%Y-%m-%d') [skip ci]"
+            git push
+          fi
